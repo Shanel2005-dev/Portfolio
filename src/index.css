@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #05070D;
+  --color-surface: #0F172A;
+  --color-surface-2: #161F32;
+  --color-border: #1E293B;
+  --color-text: #F1F5F9;
+  --color-muted: #94A3B8;
+  --color-accent: #2563EB;
+  --color-accent-light: #3B82F6;
+  --color-purple: #A855F7;
+  --color-cyan: #22D3EE;
+  --color-warm: #FBBF24;
+
+  --font-display: 'Clash Display', 'General Sans', sans-serif;
+  --font-heading: 'General Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #05070D;
+  color: #F1F5F9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clash Display', 'General Sans', sans-serif;
+}
+
+#root { min-height: 100vh; }
+
+body { overflow-x: hidden; }
+
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #05070D; }
+::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+
+a, button { transition: opacity 0.15s ease, transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease; }
+
+.gradient-text {
+  background: linear-gradient(90deg, #3B82F6, #A855F7 60%, #22D3EE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-badge {
+  animation: float-badge 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-badge { animation: none; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up, .float-slow { animation: none; }
+}
