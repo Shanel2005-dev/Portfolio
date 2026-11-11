@@ -1,6 +1,7 @@
-import { ArrowRight, Check, Mail } from 'lucide-react';
+import { ArrowRight, Check, Download, Mail } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import photoProfil from '../assets/photo-profil.jpeg';
+import cv from '../assets/CV_Mahugnon_Chanel_AKOUEHOU_Stage_2026 (1).pdf';
 
 export function Hero() {
   const { content, t } = useLanguage();
@@ -57,6 +58,14 @@ export function Hero() {
             >
               <Mail size={16} />
               {t.hero_cta_contact}
+            </a>
+            <a
+              href={cv}
+              download="CV_Mahugnon_Chanel_AKOUEHOU.pdf"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-text hover:border-accent-light hover:text-accent-light"
+            >
+              <Download size={16} />
+              {t.hero_cta_cv}
             </a>
           </div>
         </div>
