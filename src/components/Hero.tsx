@@ -11,7 +11,7 @@ export function Hero() {
       <div className="glow-orb -left-32 -top-32 h-96 w-96 bg-accent" />
       <div className="glow-orb -right-32 top-40 h-96 w-96 bg-purple" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-16 px-6 pb-20 pt-16 md:flex-row md:pt-28">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 pb-20 pt-12 md:flex-row md:gap-16 md:pt-28">
         <div className="flex-1">
           <p className="fade-in-up mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-muted">
             <span className="h-2 w-2 rounded-full bg-cyan" />
@@ -63,7 +63,7 @@ export function Hero() {
 
         <div className="fade-in-up shrink-0" style={{ animationDelay: '0.3s' }}>
           <div className="float-slow relative">
-            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-accent via-purple to-cyan opacity-40 blur-2xl" />
+            <div className="portrait-glow absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-br from-accent via-purple to-cyan opacity-40 blur-2xl" />
             <img
               src={photoProfil}
               alt={profile.name}

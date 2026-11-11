@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { LanguageMenu } from './LanguageMenu';
+import { ThemeMenu } from './ThemeMenu';
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,6 +36,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageMenu />
+          <ThemeMenu />
           <Link
             to="/contact"
             className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white hover:bg-accent-light"
@@ -45,6 +47,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3 lg:hidden">
           <LanguageMenu />
+          <ThemeMenu />
           <button
             type="button"
             className="text-text"

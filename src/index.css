@@ -1,21 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #05070D;
-  --color-surface: #0F172A;
-  --color-surface-2: #161F32;
-  --color-border: #1E293B;
-  --color-text: #F1F5F9;
-  --color-muted: #94A3B8;
-  --color-accent: #2563EB;
-  --color-accent-light: #3B82F6;
-  --color-purple: #A855F7;
-  --color-cyan: #22D3EE;
-  --color-warm: #FBBF24;
+  --color-bg: #050505;
+  --color-surface: #111111;
+  --color-surface-2: #1A1A1A;
+  --color-border: #2A2A2A;
+  --color-text: #F5F5F5;
+  --color-muted: #A3A3A3;
+  --color-accent: #FFFFFF;
+  --color-accent-light: #E5E5E5;
+  --color-purple: #262626;
+  --color-cyan: #A3A3A3;
+  --color-warm: #FFFFFF;
 
   --font-display: 'Clash Display', 'General Sans', sans-serif;
   --font-heading: 'General Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #050505;
+  --color-surface: #111111;
+  --color-surface-2: #1A1A1A;
+  --color-border: #2A2A2A;
+  --color-text: #F5F5F5;
+  --color-muted: #A3A3A3;
+  --color-accent: #DC2626;
+  --color-accent-light: #EF4444;
+  --color-purple: #991B1B;
+  --color-cyan: #F87171;
+  --color-warm: #FBBF24;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #CADCF5;
+  --color-surface: #ECF3FD;
+  --color-surface-2: #D1DFF2;
+  --color-border: #AFC4E2;
+  --color-text: #0F172A;
+  --color-muted: #52627A;
+  --color-accent: #2563EB;
+  --color-accent-light: #3B82F6;
+  --color-purple: #A855F7;
+  --color-cyan: #0891B2;
+  --color-warm: #F59E0B;
 }
 
 * { box-sizing: border-box; }
@@ -23,8 +51,11 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #05070D;
-  color: #F1F5F9;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.05), transparent 28rem),
+    radial-gradient(circle at 82% 38%, rgba(255, 255, 255, 0.035), transparent 24rem);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,29 +71,132 @@ body { overflow-x: hidden; }
 html { scroll-behavior: smooth; }
 
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #05070D; }
-::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #404040; border-radius: 4px; }
 
 a, button { transition: opacity 0.15s ease, transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease; }
 
 .gradient-text {
-  background: linear-gradient(90deg, #3B82F6, #A855F7 60%, #22D3EE);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: none;
+  color: var(--color-accent-light);
+  filter: none;
+}
+
+:root[data-theme='dark'] .gradient-text {
+  background: none;
+  color: #EF4444;
+  filter: drop-shadow(0 0 18px rgba(239, 68, 68, 0.16));
+}
+
+:root[data-theme='light'] .gradient-text {
+  background: none;
+  color: #2563EB;
+  filter: none;
+}
+
+:root[data-theme='light'] .hero-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+}
+
+:root[data-theme='dark'] .theme-button,
+:root[data-theme='dark'] .theme-button:hover {
+  color: #FFFFFF;
+}
+
+:root[data-theme='light'] .theme-button,
+:root[data-theme='light'] .theme-button:hover {
+  color: #2563EB;
+}
+
+:root[data-theme='light'] body {
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.16), transparent 34rem),
+    radial-gradient(circle at 90% 50%, rgba(96, 165, 250, 0.11), transparent 30rem),
+    radial-gradient(circle at 55% 100%, rgba(15, 23, 42, 0.1), transparent 38rem),
+    linear-gradient(140deg, rgba(37, 99, 235, 0.07), transparent 48%);
+}
+
+:root[data-theme='light'] .glow-orb {
+  opacity: 0.08;
+}
+
+:root[data-theme='light'] .portrait-glow {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.16), rgba(168, 85, 247, 0.05) 48%, transparent 74%);
+  filter: blur(2rem);
+  opacity: 1;
+}
+
+:root[data-theme='light'] ::-webkit-scrollbar-track {
+  background: #CADCF5;
+}
+
+:root[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: #96ACCA;
+}
+
+:root[data-theme='light'] ::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: #0F172A;
+}
+
+:root[data-theme='light'] .red-glow-button {
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.14), inset 0 1px rgba(255, 255, 255, 0.35);
+}
+
+:root[data-theme='light'] .red-glow-button:hover {
+  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.22), inset 0 1px rgba(255, 255, 255, 0.4);
+}
+
+:root[data-theme='light'] .portrait-frame {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.65),
+    0 0 50px rgba(37, 99, 235, 0.12);
 }
 
 .glow-orb {
   position: absolute;
   border-radius: 9999px;
   filter: blur(90px);
-  opacity: 0.25;
+  opacity: 0.18;
   pointer-events: none;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+.red-glow-button {
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.08), inset 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.red-glow-button:hover {
+  box-shadow: 0 16px 48px rgba(255, 255, 255, 0.14), inset 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.portrait-frame {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.62),
+    0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 0 50px rgba(255, 255, 255, 0.08);
 }
 
 @keyframes float-badge {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 .float-badge {
@@ -79,12 +213,12 @@ a, button { transition: opacity 0.15s ease, transform 0.15s ease, background-col
 }
 
 .fade-in-up {
-  animation: fade-in-up 0.8s ease-out both;
+  animation: fade-in-up 0.65s ease-out both;
 }
 
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+  50% { transform: translateY(-10px); }
 }
 
 .float-slow {
